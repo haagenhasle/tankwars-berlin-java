@@ -4,7 +4,7 @@ import com.knowit.berlin.tankwars.dto.command.Command;
 import com.knowit.berlin.tankwars.dto.command.CommandResponse;
 import com.knowit.berlin.tankwars.helper.RandomCommand;
 
-public class CommandHandler extends AbstractSingleEntityRequestAndResponseCommandHandler<Command> {
+public class CommandHandler extends AbstractSingleEntityRequestAndResponseCommandHandler<Command, CommandResponse> {
 
 	@Override
 	protected Class<Command> getClazz() {
@@ -12,10 +12,11 @@ public class CommandHandler extends AbstractSingleEntityRequestAndResponseComman
 	}
 
 	@Override
-	protected Object process(Command body) {
+	protected CommandResponse process(Command body) {
 
 		// Calculate what to do!
-		body.getEnemies();
+		body.getEnemies(); // etc..
+
 		return new CommandResponse(RandomCommand.command());
 
 	}

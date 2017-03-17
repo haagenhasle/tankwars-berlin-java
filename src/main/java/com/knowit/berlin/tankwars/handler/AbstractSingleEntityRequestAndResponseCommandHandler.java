@@ -11,7 +11,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.knowit.berlin.tankwars.helper.ApiGatewayResponse;
 import com.knowit.berlin.tankwars.helper.Headers;
 
-public abstract class AbstractSingleEntityRequestAndResponseCommandHandler<T>
+public abstract class AbstractSingleEntityRequestAndResponseCommandHandler<T, R>
 		implements RequestHandler<Map<String, Object>, ApiGatewayResponse> {
 
 	private static final Logger LOG = Logger.getLogger(AbstractSingleEntityRequestAndResponseCommandHandler.class);
@@ -36,6 +36,6 @@ public abstract class AbstractSingleEntityRequestAndResponseCommandHandler<T>
 	// How do you do this elegantly without reified generics?
 	protected abstract Class<T> getClazz();
 
-	protected abstract Object process(T body);
+	protected abstract R process(T body);
 
 }
