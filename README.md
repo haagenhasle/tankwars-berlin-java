@@ -6,11 +6,7 @@ To make any of this work, you need AWS credentials. [Read this](https://serverle
 
 If running serverless deploy doesn't work, it might be that you need to add some IAM permissions in AWS. Take a look at the instructions for setting up [claudiajs](https://claudiajs.com/tutorials/installing.html), it explains how to do this and what is needed. (Claudiajs ~= serverless in functionality, so the instructions probably apply to serverless as well..) 
 
-When you are ready to run a tank wars match, go [here](https://tankwars.serverless.camp/pages/match.html)
-
-## Use Cases
-
-- Wrapping an existing internal or external endpoint/service
+When you are ready to run a tank wars match, go [here](https://tankwars.serverless.camp/pages/match.html) to start a match!
 
 ## Build
 
@@ -151,6 +147,3 @@ The expected result should be similar to:
 {"message": "Hello, the current time is Wed Jan 04 23:44:37 UTC 2017"}%  
 ```
 
-## Scaling
-
-By default, AWS Lambda limits the total concurrent executions across all functions within a given region to 100. The default limit is a safety limit that protects you from costs due to potential runaway or recursive functions during initial development and testing. To increase this limit above the default, follow the steps in [To request a limit increase for concurrent executions](http://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html#increase-concurrent-executions-limit).
