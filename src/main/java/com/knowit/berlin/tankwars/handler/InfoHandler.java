@@ -1,4 +1,4 @@
-package com.knowit.berlin;
+package com.knowit.berlin.tankwars.handler;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,7 +7,8 @@ import org.apache.log4j.Logger;
 
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
-import com.knowit.berlin.dto.Info;
+import com.knowit.berlin.tankwars.dto.info.InfoResponse;
+import com.knowit.berlin.tankwars.helper.ApiGatewayResponse;
 
 public class InfoHandler implements RequestHandler<Map<String, Object>, ApiGatewayResponse> {
 
@@ -23,7 +24,7 @@ public class InfoHandler implements RequestHandler<Map<String, Object>, ApiGatew
 		headers.put("Access-Control-Allow-Origin", "*");
 		headers.put("Access-Control-Allow-Credentials", "true");
 
-		Info responseBody = new Info("Hågens tank", "Hågen");
-		return ApiGatewayResponse.builder().setStatusCode(200).setObjectBody(responseBody).setHeaders(headers).build();
+		InfoResponse infoResponse = new InfoResponse("Hågens tank", "Hågen");
+		return ApiGatewayResponse.builder().setStatusCode(200).setObjectBody(infoResponse).setHeaders(headers).build();
 	}
 }

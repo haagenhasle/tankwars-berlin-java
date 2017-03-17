@@ -1,4 +1,4 @@
-package com.knowit.berlin.dto;
+package com.knowit.berlin.tankwars.dto.command;
 
 public class Field {
 

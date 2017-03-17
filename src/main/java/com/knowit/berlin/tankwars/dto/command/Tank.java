@@ -1,12 +1,13 @@
-package com.knowit.berlin.dto;
+package com.knowit.berlin.tankwars.dto.command;
+
+import com.knowit.berlin.tankwars.dto.command.type.DirectionType;
 
 public class Tank {
 
 	private int x;
 	private int y;
 	private int strength;
-	private String direction; // left, right, top, bottom - kan det være en
-								// enum?
+	private DirectionType direction;
 	private int ammo;
 	private String status;
 	private int targetRange;
@@ -35,11 +36,11 @@ public class Tank {
 		this.strength = strength;
 	}
 
-	public String getDirection() {
+	public DirectionType getDirection() {
 		return direction;
 	}
 
-	public void setDirection(String direction) {
+	public void setDirection(DirectionType direction) {
 		this.direction = direction;
 	}
 

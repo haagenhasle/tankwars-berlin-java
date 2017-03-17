@@ -1,4 +1,4 @@
-package com.knowit.berlin;
+package com.knowit.berlin.tankwars.helper;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;

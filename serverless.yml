@@ -11,14 +11,14 @@ package:
 
 functions:
   info:
-    handler: com.knowit.berlin.InfoHandler
+    handler: com.knowit.berlin.tankwars.handler.InfoHandler
     events:
       - http:
           path: tank/info
           method: get
           cors: true
   command:
-    handler: com.knowit.berlin.CommandHandler
+    handler: com.knowit.berlin.tankwars.handler.CommandHandler
     events:
       - http:
           path: tank/command

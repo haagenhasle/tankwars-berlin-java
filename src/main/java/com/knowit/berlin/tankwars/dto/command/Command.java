@@ -1,6 +1,6 @@
-package com.knowit.berlin.dto;
+package com.knowit.berlin.tankwars.dto.command;
 
-public class CommandInput {
+public class Command {
 
 	private String matchId;
 	private int mapWidth;

@@ -1,11 +1,11 @@
-package com.knowit.berlin.dto;
+package com.knowit.berlin.tankwars.dto.info;
 
-public class Info {
+public class InfoResponse {
 
 	private final String name;
 	private final String owner;
 
-	public Info(String name, String owner) {
+	public InfoResponse(String name, String owner) {
 		this.name = name;
 		this.owner = owner;
 	}
