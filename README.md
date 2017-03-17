@@ -4,6 +4,8 @@ This example demonstrates how to setup a simple tankwars tank for the Serverless
 
 To make any of this work, you need AWS credentials. [Read this](https://serverless.com/framework/docs/providers/aws/guide/credentials/) and do as it tells you!
 
+If running serverless deploy doesn't work, it might be that you need to add some IAM permissions in AWS. Take a look at the instructions for setting up [claudiajs](https://claudiajs.com/tutorials/installing.html), it explains how to do this and what is needed. (Claudiajs ~= serverless in functionality, so the instructions probably apply to serverless as well..) 
+
 When you are ready to run a tank wars match, go [here](https://tankwars.serverless.camp/pages/match.html)
 
 ## Use Cases
