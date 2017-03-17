@@ -2,6 +2,8 @@
 
 This example demonstrates how to setup a simple tankwars tank for the Serverless workshop using Java. 
 
+To make any of this work, you need AWS credentials. [Read this](https://serverless.com/framework/docs/providers/aws/guide/credentials/) and do as it tells you!
+
 [Jackson](https://github.com/FasterXML/jackson) is used to serialize objects to JSON.
 
 ## Use Cases
