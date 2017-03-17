@@ -12,10 +12,10 @@ public class CommandHandler extends AbstractSingleEntityRequestAndResponseComman
 	}
 
 	@Override
-	protected CommandResponse process(Command body) {
+	protected CommandResponse process(Command request) {
 
 		// Calculate what to do!
-		body.getEnemies(); // etc..
+		request.getEnemies(); // etc..
 
 		return new CommandResponse(RandomCommand.command());
 

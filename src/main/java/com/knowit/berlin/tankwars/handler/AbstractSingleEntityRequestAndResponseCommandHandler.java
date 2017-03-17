@@ -36,6 +36,6 @@ public abstract class AbstractSingleEntityRequestAndResponseCommandHandler<T, R>
 	// How do you do this elegantly without reified generics?
 	protected abstract Class<T> getClazz();
 
-	protected abstract R process(T body);
+	protected abstract R process(T request);
 
 }
