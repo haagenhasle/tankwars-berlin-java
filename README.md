@@ -61,12 +61,12 @@ If you use Maven to build, then in `serverless.yml` you have to replace
 
 ```yaml
 package:
-  artifact: build/distributions/aws-java-simple-http-endpoint.zip
+  artifact: build/distributions/aws-java-tank.zip
 ```
 by
 ```yaml
 package:
-  artifact: target/aws-java-simple-http-endpoint.jar
+  artifact: target/aws-java-tank.jar
 ```
 before deploying.
 
@@ -86,21 +86,23 @@ Serverless: Checking Stack create progress...
 .....
 Serverless: Stack create finished...
 Serverless: Uploading CloudFormation file to S3...
-Serverless: Uploading service .zip file to S3...
+Serverless: Uploading service .zip file to S3 (1.83 MB)...
 Serverless: Updating Stack...
 Serverless: Checking Stack update progress...
-..............................
+.........................................................
 Serverless: Stack update finished...
 Service Information
-service: aws-java-simple-http-endpoint
+service: aws-java-tank
 stage: dev
 region: us-east-1
 api keys:
   None
 endpoints:
-  GET - https://XXXXXXX.execute-api.us-east-1.amazonaws.com/dev/ping
+  GET - https://XXXXXXX.execute-api.us-east-1.amazonaws.com/dev/tank/info
+  POST - https://XXXXXXX.execute-api.us-east-1.amazonaws.com/dev/tank/command
 functions:
-  aws-java-simple-http-endpoint-dev-currentTime: arn:aws:lambda:us-east-1:XXXXXXX:function:aws-java-simple-http-endpoint-dev-currentTime
+  info: aws-java-tank-dev-info
+  command: aws-java-tank-dev-command
 
 ```
 
@@ -109,7 +111,7 @@ functions:
 You can now invoke the Lambda function directly and even see the resulting log via
 
 ```bash
-serverless invoke --function currentTime --log
+serverless invoke --function info --log
 ```
 
 The expected result should be similar to:
@@ -117,8 +119,10 @@ The expected result should be similar to:
 ```bash
 {
     "statusCode": 200,
-    "body": "{\"message\":\"Hello, the current time is Wed Jan 04 23:44:37 UTC 2017\"}",
+    "body": "{\"name\":\"Hågens tank\",\"owner\":\"Hågen\"}",
     "headers": {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Credentials": "true",
         "X-Powered-By": "AWS Lambda & Serverless",
         "Content-Type": "application/json"
     },
@@ -126,15 +130,15 @@ The expected result should be similar to:
 }
 --------------------------------------------------------------------
 START RequestId: XXXXXXX Version: $LATEST
-2017-01-04 23:44:37 <XXXXXXX> INFO  com.serverless.Handler:18 - received: {}
+2017-03-17 12:48:19 <XXXXXXX> INFO  com.knowit.berlin.InfoHandler:18 - received: {}
 END RequestId: XXXXXXX
-REPORT RequestId: XXXXXXX	Duration: 0.51 ms	Billed Duration: 100 ms 	Memory Size: 1024 MB	Max Memory Used: 53 MB
+REPORT RequestId: XXXXXXX Duration: 19.74 ms  Billed Duration: 100 ms   Memory Size: 1024 MB  Max Memory Used: 57 MB  
 ```
 
 Finally you can send an HTTP request directly to the endpoint using a tool like curl
 
 ```bash
-curl https://XXXXXXX.execute-api.us-east-1.amazonaws.com/dev/ping
+curl https://XXXXXXX.execute-api.us-east-1.amazonaws.com/dev/tank/info
 ```
 
 The expected result should be similar to:
